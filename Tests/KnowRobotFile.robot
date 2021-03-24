@@ -5,7 +5,7 @@ Documentation  You can use put some information about your test suite here
 # Adding other robot framework libraries
 Library  Dialogs
 Library  String
-Library  Selenium2Library
+Library  SeleniumLibrary
 # Adding resources from your project using a relative path to the resource
 Resource  ../Resources/MyResources.robot
 

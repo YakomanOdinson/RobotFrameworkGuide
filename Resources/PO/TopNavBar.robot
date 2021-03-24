@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation  Amazon top navigation bar. It is present in each page.
-Library  Selenium2Library
+Library  SeleniumLibrary
 *** Variables ***
 
 *** Keywords ***

@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation  Demo for robot framework guide
-Library  Selenium2Library
+Library  SeleniumLibrary
 Test Setup  Begin Web Test
 Test Teardown  End Web Test
 *** Variables ***
@@ -13,14 +13,14 @@ My very first Robot Framework test
     [Teardown]
     Create Webdriver  Chrome
     Go To  https://www.amazon.com.mx/
-    Wait Until Page Contains  Mi Amazon.com.mx
+    Wait Until Page Contains  Hola, Identifícate
     Input Text  id=twotabsearchtextbox  World of Warcraft
-    Click Button  css=input[type=submit][class=nav-input]
+    Click Button  xpath=//input[@id='nav-search-submit-button']
     Wait Until Page Contains  resultados para "World of Warcraft"
-    Click Link  css=#result_0 a.s-access-detail-page
-    Wait Until Page Contains  Volver a los resultados de búsqueda
+    Click Element  xpath=//img[@class='s-image'][@srcset]
+    Wait Until Page Contains  Volver a resultados
     Click Button  id=add-to-cart-button
-    Wait Until Page Contains  producto agregado al carrito
+    Wait Until Page Contains  Agregado al carrito
     Click Link  Proceder al pago (1 artículo)
     Title Should Be  Amazon Iniciar sesión
     Close Browser
@@ -35,16 +35,16 @@ First script refactor: User:Defined keywords
 *** Keywords ***
 Search Products
     Input Text  id=twotabsearchtextbox  World of Warcraft
-    Click Button  css=input[type=submit][class=nav-input]
+    Click Button  xpath=//input[@id='nav-search-submit-button']
     Wait Until Page Contains  resultados para "World of Warcraft"
 
 Select Product
-    Click Link  css=#result_0 a.s-access-detail-page
-    Wait Until Page Contains  Volver a los resultados de búsqueda
+    Click Element  xpath=//img[@class='s-image'][@srcset]
+    Wait Until Page Contains  Volver a resultados
 
 Add to Cart
     Click Button  id=add-to-cart-button
-    Wait Until Page Contains  producto agregado al carrito
+    Wait Until Page Contains  Agregado al carrito
 
 Start Checkout
     Click Link  Proceder al pago (1 artículo)
@@ -53,7 +53,7 @@ Start Checkout
 Begin Web Test
     Create Webdriver  Chrome
     Go To  https://www.amazon.com.mx/
-    Wait Until Page Contains  Mi Amazon.com.mx
+    Wait Until Page Contains  Hola, Identifícate
 
 End Web Test
     Close Browser
